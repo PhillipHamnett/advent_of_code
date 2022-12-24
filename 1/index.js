@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.readFile('./inputs/1-1.dat', 'utf8', (err,data) => {
+fs.readFile('./input.dat', 'utf8', (err,data) => {
     if(err) {
         console.error(err);
         return;
@@ -16,13 +16,12 @@ fs.readFile('./inputs/1-1.dat', 'utf8', (err,data) => {
         }
         caloriesPerElf.push(totalCalories);
         if(totalCalories > highestCalories) highestCalories = totalCalories;
-        console.log("highestCalories: ", highestCalories);
     }
     caloriesPerElf.sort((a,b) => {return b - a});
     let topThreeElfCalories = 0;
     for(let i = 0; i < 3; ++i){
         topThreeElfCalories += Number(caloriesPerElf[i]);
     }
-    console.log(highestCalories);
-    console.log(topThreeElfCalories);
+    console.log('Highest Calories:',highestCalories);
+    console.log('Top Three Highest Calories:',topThreeElfCalories);
 });
